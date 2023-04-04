@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Botao from '../Botao'
 import ListaSuspensa from '../ListaSuspensa'
 import CampoTexto from '../campoTexto'
@@ -16,14 +17,49 @@ const Formulario = () => {
     'Mobile',
     'Inovação & Gestão'
   ]
+
+  const [nome, setNome] = useState('')
+  const [cargo, setCargo] = useState('')
+  const [imagem, setImagem] = useState('')
+  const [time, setTime] = useState('')
+
+  const aoSalvar = (evento) => {
+    evento.preventDefault()
+    console.log('Form foi Submetido => ', nome, cargo, imagem, time)
+  }
   return(
     <section className='formulario'>
-      <form>
-        <h2>Preencha os dados para criar o card do colaborador</h2>
-      <CampoTexto label='Nome' placeholder='Digite seu nome'/>
-      <CampoTexto label='Cargo'placeholder='Digite seu Cargo'/>
-      <CampoTexto label='Imagem'placeholder='Digite o endereço da imagem'/>
-      <ListaSuspensa label='Time' itens={times}/>
+      <form onSubmit={aoSalvar}>
+        <h2>Preencha os dados para criar o card do colaborador.</h2>
+      <CampoTexto 
+      obrigatorio={true} 
+      label='Nome:' 
+      placeholder='Digite seu nome'
+      valor = {nome}
+      aoAlterado = {valor => setNome(valor)}
+      />
+
+      <CampoTexto 
+      obrigatorio={true}
+      label='Cargo:'
+      placeholder='Digite seu Cargo'
+      valor = {cargo}
+      aoAlterado = {valor => setCargo(valor)}
+      />
+      <CampoTexto 
+      label='Imagem:'
+      placeholder='Digite o endereço da imagem'
+      valor = {imagem}
+      aoAlterado = {valor => setImagem(valor)}
+      />
+      <ListaSuspensa 
+        obrigatorio={true}
+        label='Time:' 
+        itens={times}
+        valor = {time}
+        aoAlterado = {valor => setTime(valor)}
+        />
+        
       <Botao>
         Criar Card
       </Botao>
