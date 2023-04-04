@@ -8,14 +8,7 @@ import './Formulario.css'
 const Formulario = (props) => {
 
   const times = [
-    '',
-    'Programação',
-    'Front-End',
-    'Data Science',
-    'DevOps',
-    'UX & Designe',
-    'Mobile',
-    'Inovação & Gestão'
+   
   ]
 
   const [nome, setNome] = useState('')
@@ -35,7 +28,7 @@ const Formulario = (props) => {
   return(
     <section className='formulario'>
       <form onSubmit={aoSalvar}>
-        <h2>Preencha os dados para criar o card do colaborador.</h2>
+        <h2>Preencha os dados para criar o card do passageiro.</h2>
       <CampoTexto 
       obrigatorio={true} 
       label='Nome:' 
@@ -60,7 +53,7 @@ const Formulario = (props) => {
       <ListaSuspensa 
         obrigatorio={true}
         label='Time:' 
-        itens={times}
+        itens={props.times}
         valor = {time}
         aoAlterado = {valor => setTime(valor)}
         />
