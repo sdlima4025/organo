@@ -1,0 +1,15 @@
+.rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #485dd4;
+
+}
+.rodape img {
+  display: flex;
+  align-items: center;
+  
+}
+.rodape h4 {
+  color: #FFF;
+}

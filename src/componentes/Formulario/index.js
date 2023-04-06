@@ -6,8 +6,8 @@ import './Formulario.css'
 
 
 const Formulario = (props) => {
-
   const [nome, setNome] = useState('')
+  const [rg, setRg] = useState('')
   const [cargo, setCargo] = useState('')
   const [imagem, setImagem] = useState('')
   const [time, setTime] = useState('')
@@ -16,11 +16,13 @@ const Formulario = (props) => {
     evento.preventDefault()
     props.aoColaboradorCadastrado({
       nome,
+      rg,
       cargo,
       imagem,
       time
     })
     setNome('')
+    setRg('')
     setCargo('')
     setImagem('')
     setTime('')
@@ -38,9 +40,17 @@ const Formulario = (props) => {
       />
 
       <CampoTexto 
+      obrigatorio={true} 
+      label='RG:' 
+      placeholder='Digite o RG'
+      valor = {rg}
+      aoAlterado = {valor => setRg(valor)}
+      />
+
+      <CampoTexto 
       obrigatorio={true}
-      label='Cargo:'
-      placeholder='Digite seu Cargo'
+      label='Congregação:'
+      placeholder='Digite a congregação'
       valor = {cargo}
       aoAlterado = {valor => setCargo(valor)}
       />
@@ -52,7 +62,7 @@ const Formulario = (props) => {
       />
       <ListaSuspensa 
         obrigatorio={true}
-        label='Time:' 
+        label='Rota:' 
         itens={props.times}
         valor = {time}
         aoAlterado = {valor => setTime(valor)}
