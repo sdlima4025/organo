@@ -28,7 +28,7 @@ const Formulario = (props) => {
   return(
     <section className='formulario'>
       <form onSubmit={aoSalvar}>
-        <h2>Preencha os dados para criar o card do passageiro.</h2>
+        <h2>Preencha os dados para cadastrar o passageiro.</h2>
       <CampoTexto 
       obrigatorio={true} 
       label='Nome:' 
