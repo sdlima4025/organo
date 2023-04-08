@@ -51,10 +51,10 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
   }
   return (
+    <section>
     <div className="App">
       <Banner/>
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado = {colaborador => aoNovoColaboradorAdicionado(colaborador) }/> 
-      <Rodape/>
       {times.map(time =><Time 
       key={time.nome} 
       nome = {time.nome} 
@@ -63,6 +63,8 @@ function App() {
       colaboradores={colaboradores.filter(colaborador => colaborador.time ===time.nome)}
       />)} 
     </div>
+    <Rodape/>
+    </section>
   );
 }
 
