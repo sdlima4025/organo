@@ -4,7 +4,7 @@ function Rodape ()  {
   return (
     
   <footer >
-      <div className='rodape'>
+      <div className='footer-rodape'>
       <img className='rodapeImagem' src="/imagens/fb.png" alt="img"></img>
       <img src="/imagens/tw.png" alt="img"></img>
       <img src="/imagens/ig.png" alt="img"></img>
